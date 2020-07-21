@@ -188,4 +188,6 @@ if __name__ == '__main__':
     tensorboard_log_dir = argv.tensorboard_log_dir
     preprocessing = argv.preprocessing
 
-    train(filelist_A, filelist_B, model_dir = model_dir, model_name = model_n
+    train(filelist_A, filelist_B, model_dir=model_dir, model_name=model_name, random_seed=random_seed,
+          val_filelist_A=val_filelist_A, val_filelist_B=val_filelist_B, output_dir=output_dir,
+          tensorboard_log_dir=tensorboard_log_dir, preprocessing=preprocessing)

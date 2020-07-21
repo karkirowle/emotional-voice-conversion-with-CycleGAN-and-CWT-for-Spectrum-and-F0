@@ -3,12 +3,18 @@ import numpy as np
 import os
 import pyworld
 
-def load_wavs(wav_dir, sr):
+def load_wavs(sr, filelist):
 
     wavs = list()
-    for file in os.listdir(wav_dir):
-        file_path = os.path.join(wav_dir, file)
-        wav, _ = librosa.load(file_path, sr = sr, mono = True)
+
+    with open(filelist) as f:
+        temp_files = f.readlines()
+
+    files = [x.strip() for x in temp_files]
+
+    for file in files:
+        #file_path = os.path.join(wav_dir, file)
+        wav, _ = librosa.load(file, sr = sr, mono = True)
         #wav = wav.astype(np.float64)
         wavs.append(wav)
 
